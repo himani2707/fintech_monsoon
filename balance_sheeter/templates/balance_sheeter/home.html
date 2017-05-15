@@ -1,0 +1,6 @@
+<form action="{% url 'save-and-return' %}" method="post" enctype="multipart/form-data">
+    Variable name: <input type="text" name="query_variable" value="Bonus"><br>
+    Year: <input type="number" name="query_year" min="1900" max="2017"> <br>
+    File: <input type="file" name="file" accept="application/pdf"> <br>
+    <input type="submit" value="Submit">
+</form>

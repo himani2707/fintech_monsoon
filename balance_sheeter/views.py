@@ -12,7 +12,8 @@ import os
 
 
 def home(request):
-    return render(request, 'monsoon/home.html')
+    return render(request, 'balance_sheeter/home.html')
+
 
 @csrf_exempt
 def save_and_return(request):
@@ -53,12 +54,12 @@ def save_and_return(request):
 def results(request):
     try:
         context = {
-        'value': request.GET['value'],
-        'filename': request.GET['filename']
+            'value': request.GET['value'],
+            'filename': request.GET['filename']
         }
     except KeyError:
         return HttpResponseRedirect(reverse('home'))
-    return render(request, 'monsoon/results.html', context)
+    return render(request, 'balance_sheeter/results.html', context)
 
 
 def download(request):
@@ -66,5 +67,6 @@ def download(request):
     filepath = os.path.join(settings.MEDIA_ROOT, filename)
     f = File(open(filepath, 'r'))
     response = HttpResponse(f, content_type='application/force-download')
-    response['Content-Disposition'] = 'attachment; filename=' + filename + '.csv'
+    response[
+        'Content-Disposition'] = 'attachment; filename=' + filename + '.csv'
     return response
