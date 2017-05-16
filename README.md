@@ -1,4 +1,4 @@
-#Welcome to balance_sheeter!
+# Welcome to balance_sheeter!
 This is the ReadMe file for BalanceSheet. This will help you in Getting Started with the project.
 
 ## Installation
@@ -12,7 +12,7 @@ balance_sheeter is built using Python, Django and postgresql so you will need to
     
 #### Set up postgresql
 
-    `Follow the installation instructions mentioned [here](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
+    Follow the installation instructions mentioned [here](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
     
     createuser Himani --createdb
     
