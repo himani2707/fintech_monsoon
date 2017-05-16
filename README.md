@@ -12,7 +12,7 @@ balance_sheeter is built using Python, Django and postgresql so you will need to
     
 #### Set up postgresql
 
-    Follow the installation instructions mentioned [here](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
+Follow the installation instructions mentioned [here](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
     
     createuser Himani --createdb
     
@@ -49,12 +49,14 @@ NOTE: If you get `FATAL: Peer authentication failed for user "<username>"
 
 ## API details
 
-#### Post queries and upload balance sheet
+##### Request type: GET URL: http://localhost:8000/monsoon/home
+    Home page
 
-##### Request type: POST URL: http://localhost:8000/monsoon/home
-    POST params: Add the variable name (as in the balance sheet) and year which you want to extract from balance sheet. Upload the balance
-    sheet pdf.
+##### Request type: POST URL: http://localhost:8000/monsoon/save-and-return
+    POST params: variable name (as in the balance sheet), year, balance-sheet.pdf
 
-##### OUTPUT : GET URL: http://localhost:8000/monsoon/requests
+##### Request type: GET URL: http://localhost:8000/monsoon/results
     Returns value corresponding to the query and a link to download csv file
 
+##### Request type: GET URL: http://localhost:8000/monsoon/results
+    Downloads the csv file
