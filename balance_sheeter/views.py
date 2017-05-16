@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseBadRequest, HttpResponseRedirect, Http404, \
-    HttpResponse
+    HttpResponse, HttpResponseServerError
 from django.urls import reverse
 from django.conf import settings
 from django.core.files import File
@@ -34,8 +34,11 @@ def save_and_return(request):
     # Create csv
     df, csv_file_name = convert_pdf_to_csv(temp_file)
 
-    if df is None or csv_file_name is None:
+    if df is None:
         return HttpResponseBadRequest("Incorrect data")
+
+    if csv_file_name is None:
+        return HttpResponseServerError("File saving failed. Please try again.")
 
     # Save data to db
     save_dataframe_to_db(df)
